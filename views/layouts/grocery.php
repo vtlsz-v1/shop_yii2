@@ -26,7 +26,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 
 <body>
 <?php $this->beginBody() ?>
-<?= debug(Yii::$app->homeUrl) ?>
+
 <!-- header -->
 <div class="agileits_header">
     <div class="w3l_offers">
