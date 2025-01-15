@@ -12,6 +12,6 @@ class HomeController extends AppController
         $offers = Product::find()->where(['is_offer' => 1])->limit(4)->all(); // выводим 4 товара
         /*debug($offers);*/
 
-        return $this->render('index', compact('offers')); // передаем товары в вид offers
+        return $this->render('index', compact('offers')); // передаем товары в вид index
     }
 }
