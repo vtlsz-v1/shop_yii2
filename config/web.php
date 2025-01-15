@@ -53,6 +53,8 @@ $config = [
             'showScriptName' => false,
             'enableStrictParsing' => false, // вкл. строгий разбор URL
             'rules' => [
+                'category/<id:\d+>' => 'category/view', // убираем view из адресной строки браузера
+                'product/<id:\d+>' => 'product/view',
             ],
         ],
 
