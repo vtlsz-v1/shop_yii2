@@ -71,7 +71,7 @@
             <div class="w3ls_w3l_banner_nav_right_grid1">
             <!--выводим все относящиеся к этой категории товары-->
             <?php foreach($products as $product) : ?>
-                <div class="col-md-3 w3ls_w3l_banner_left">
+                <div class="col-md-3 w3ls_w3l_banner_left"> <!--style="margin-bottom: 25px"-->
                     <div class="hover14 column">
                         <div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
                 <?php if($product->is_offer) : ?> <!--если товар является предложением (т.е. если поле is_offer в таблице равно 1)-->
@@ -122,6 +122,13 @@
                     </div>
                 <?php endforeach; ?>
                     <div class="clearfix"> </div>
+                <div class="col-md-12">
+                    <?= \yii\widgets\LinkPager::widget([ // выводим пагинацию, передав методу widget нужные настройки
+                        'pagination' => $pages, // объект, который был передан в контроллере
+                        'nextPageCssClass' => 'next test', // меняем вид кнопок пагинации
+                        //'maxButtonCount' => 3, // устанавливаем число кнопок с номерами страниц
+                    ]) ?>
+                </div>
             </div>
             <?php else: ?> <!--если товаров в данной категории нет-->
             <div class="w3ls_w3l_banner_nav_right_grid1">
