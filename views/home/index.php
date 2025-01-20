@@ -1,4 +1,7 @@
-    <div class="w3l_banner_nav_right">
+<!-- banner -->
+<div class="banner">
+<?= $this->render('//layouts/inc/sidebar') ?> <!--подключаем меню сайта-->
+<div class="w3l_banner_nav_right">
         <section class="slider">
             <div class="flexslider">
                 <ul class="slides">
@@ -29,7 +32,6 @@
                 </ul>
             </div>
         </section>
-
         <!-- //flexSlider -->
     </div>
     <div class="clearfix"></div>

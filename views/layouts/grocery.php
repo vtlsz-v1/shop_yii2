@@ -17,6 +17,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 <html lang="<?= Yii::$app->language ?>" class="h-100">
 <html>
 <head>
+    <base href="/"> <!--базовый путь (слэш будет добавляться ко всем путям)-->
     <title><?= Html::encode($this->title) ?></title>
     <!-- for-mobile-apps -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -91,10 +92,6 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     </div>
 </div>
 <!-- //header -->
-
-<!-- banner -->
-<div class="banner">
-    <?= $this->render('//layouts/inc/sidebar') ?> <!--подключаем меню сайта-->
     <?= $content ?>
 
 <!-- newsletter -->
