@@ -14,6 +14,9 @@ class CategoryController extends AppController
             throw new NotFoundHttpException('Такой категории нет !'); // выбрасываем исключение 404
         }
 
+        // регистрируем мета-теги
+        $this->setMeta("{$category->title} :: " . \yii::$app->name, $category->keywords, $category->description);
+
         // если категория существует, получаем относящиеся к ней продукты
         $products = Product::find()->where(['category_id' => $id])->all();
 

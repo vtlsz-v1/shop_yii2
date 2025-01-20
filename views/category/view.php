@@ -1,9 +1,10 @@
 <!-- products-breadcrumb -->
 <div class="products-breadcrumb">
     <div class="container">
-        <ul>
-            <li><i class="fa fa-home" aria-hidden="true"></i><a href="index.html">Home</a><span>|</span></li>
-            <li>Branded Foods</li>
+        <ul> <!--"хлебные крошки"-->
+            <!--ссылка на главную страницу-->
+            <li><i class="fa fa-home" aria-hidden="true"></i><a href="<?= \yii\helpers\url::home() ?>">Главная</a><span>|</span></li>
+            <li><?= $category->title ?></li> <!--название выбранной категории-->
         </ul>
     </div>
 </div>
