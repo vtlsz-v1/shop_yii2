@@ -25,8 +25,9 @@ class CategoryController extends AppController
         $query = Product::find()->where(['category_id' => $id]); // объект запроса
         // будем выводить по 4 товара на странице
         // totalCount - общее количество товаров в таблице
-        // 'forcePageParam' => false, 'pageSizeParam' => false - убираем из адресной строки браузера параметр per-page
-        $pages = new Pagination(['totalCount' => $query->count(), 'pageSize' => 1, 'forcePageParam' => false, 'pageSizeParam' => false]);
+        // 'pageSizeParam' => false - убираем из адресной строки браузера параметр per-page
+        // 'forcePageParam' => false - для первой страницы не будет показываться get-параметр
+        $pages = new Pagination(['totalCount' => $query->count(), 'pageSize' => 4, 'forcePageParam' => false, 'pageSizeParam' => false]);
         $products = $query->offset($pages->offset)->limit($pages->limit)->all();
 
         return $this->render('view', compact('products', 'category', 'pages')); // передаем в вид продукты и категории
