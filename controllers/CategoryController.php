@@ -9,9 +9,10 @@ use yii\web\NotFoundHttpException;
 
 class CategoryController extends AppController
 {
-    public function actionView($id) { // $id - номер категории
+    public function actionView($id)
+    { // $id - номер категории
         $category = Category::findOne($id); // получаем категорию по id
-        if(empty($category)) { // если такой категории не существует
+        if (empty($category)) { // если такой категории не существует
             throw new NotFoundHttpException('Такой категории нет !'); // выбрасываем исключение 404
         }
 
@@ -31,6 +32,28 @@ class CategoryController extends AppController
         $products = $query->offset($pages->offset)->limit($pages->limit)->all();
 
         return $this->render('view', compact('products', 'category', 'pages')); // передаем в вид продукты и категории
-                                                                                                        // (с использованием пагинации)
+        // (с использованием пагинации)
     }
+
+    // поиск товара через поисковую форму
+    public function actionSearch()
+    {
+        // получаем q из массива get (это значение атрибута name текстовой поисковой строки <input>, т.е. текст запроса)
+        $q = trim(\yii::$app->request->get('q'));
+        $this->setMeta("Поиск: {$q} :: " . \yii::$app->name); // устанавливаем title
+
+        if (!$q) { // если в переменной q окажется пустая строка
+            return $this->render('search'); // ничего не ищем и возвращаем представление search
+        }
+
+        // если переменная q не пуста, выполняем следующие действия:
+        $query = Product::find()->where(['like', 'title', $q]); // используем оператор like, ищем товар $q по полю title
+        // будем выводить по 4 товара на странице
+        $pages = new Pagination(['totalCount' => $query->count(), 'pageSize' => 4, 'forcePageParam' => false, 'pageSizeParam' => false]);
+        $products = $query->offset($pages->offset)->limit($pages->limit)->all();
+
+        // передаем в вид продукты, объект пагинации и введенный пользователем запрос
+        return $this->render('search', compact('products', 'pages', 'q'));
+    }
+
 }

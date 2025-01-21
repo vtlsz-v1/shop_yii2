@@ -34,8 +34,9 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
         <a href="products.html">Today's special Offers !</a>
     </div>
     <div class="w3l_search">
-        <form action="#" method="post">
-            <input type="text" name="Product" value="Search a product..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search a product...';}" required="">
+        <form action="<?= \yii\helpers\Url::to(['category/search']) ?>" method="get"> <!--форма поиска товара-->
+            <!--данные из формы будут отправляться на контроллер category/search-->
+            <input type="text" name="q" value="Поиск продукта..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Поиск продукта...';}" required="">
             <input type="submit" value=" ">
         </form>
     </div>
