@@ -84,8 +84,13 @@ sup {
 sub {
   bottom: -.25em;
 }
-img {
+img { /*делаем все изображения адаптивными*/
   border: 0;
+  max-width: 100%;
+  height: auto;
+}
+.snipcart-thumb img {
+  max-height: 140px;
 }
 svg:not(:root) {
   overflow: hidden;
@@ -4627,10 +4632,10 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   padding: 6px 12px;
   margin-left: -1px;
   line-height: 1.42857143;
-  color: #337ab7;
+  color: red;
   text-decoration: none;
   background-color: #fff;
-  border: 1px solid #ddd;
+  border: 1px solid orangered;
 }
 .pagination > li:first-child > a,
 .pagination > li:first-child > span {
@@ -4647,9 +4652,9 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pagination > li > span:hover,
 .pagination > li > a:focus,
 .pagination > li > span:focus {
-  color: #23527c;
-  background-color: #eee;
-  border-color: #ddd;
+  color: #240091;
+  background-color: #fae4d5;
+  border-color: orangered;
 }
 .pagination > .active > a,
 .pagination > .active > span,
@@ -4660,8 +4665,8 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   z-index: 2;
   color: #fff;
   cursor: default;
-  background-color: #337ab7;
-  border-color: #337ab7;
+  background-color: red;
+  border-color: orangered;
 }
 .pagination > .disabled > span,
 .pagination > .disabled > span:hover,
